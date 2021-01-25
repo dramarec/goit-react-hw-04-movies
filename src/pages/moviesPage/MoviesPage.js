@@ -47,11 +47,9 @@ export default class Shows extends Component {
         return (
             <>
                 <h2>Search Movies</h2>
+
                 <Searchbox onSubmit={this.handleSearchQuery} />
-                {/* <Route
-                    path={`${this.props.match.path}/:movieId `}
-                    component={Reviews}
-                /> */}
+
                 {movies.length > 0 && (
                     <ul>
                         {movies.map(movie => (

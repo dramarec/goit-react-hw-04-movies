@@ -1,32 +1,33 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import routes from '../routes';
+import styled from 'styled-components';
+
+import { mainRoutes } from '../routes/mainRoutes';
+
+const Nav = styled.nav`
+    ul {
+        display: flex;
+    }
+`;
 
 const Navigation = () => {
     return (
-        <nav>
+        <Nav>
             <ul>
-                <li>
-                    <NavLink
-                        exact
-                        to={routes.home}
-                        className="link"
-                        activeClassName="active-link"
-                    >
-                        Home
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink
-                        to={routes.movies}
-                        className="link"
-                        activeClassName="active-link"
-                    >
-                        Movies
-                    </NavLink>
-                </li>
+                {mainRoutes.map(({ path, name, exact }) => (
+                    <li key={path}>
+                        <NavLink
+                            exact={exact}
+                            to={path}
+                            className="link"
+                            activeClassName="active-link"
+                        >
+                            {name}
+                        </NavLink>
+                    </li>
+                ))}
             </ul>
-        </nav>
+        </Nav>
     );
 };
 
