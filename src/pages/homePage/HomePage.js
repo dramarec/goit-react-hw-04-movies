@@ -22,7 +22,6 @@ const Div = styled.div`
         text-align: center;
     }
     a {
-        border: 1px solid #ccc;
         border-radius: 5px;
         text-decoration: none;
         color: rgb(149, 149, 149);

@@ -24,7 +24,6 @@ const Div = styled.div`
         text-align: center;
     }
     a {
-        border: 1px solid #ccc;
         text-decoration: none;
         border-radius: 5px;
         color: rgb(149, 149, 149);
