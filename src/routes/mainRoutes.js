@@ -1,11 +1,3 @@
-// /* eslint-disable import/no-anonymous-default-export */
-// export default {
-//     home: '/',
-//     movieDetalis: '/movies/:movieId',
-//     movies: '/movies',
-//     cast: '/movies/:movieId/cast',
-//     reviews: '/movies/:movieId/reviews',
-// };
 import { lazy } from 'react';
 
 export const mainRoutes = [
@@ -22,7 +14,7 @@ export const mainRoutes = [
     {
         path: '/movies',
         name: 'Movies',
-        exact: true,
+        exact: false,
         component: lazy(() =>
             import(
                 '../pages/moviesPage/MoviesPage' /* webpackChunkName: "MoviesPage" */

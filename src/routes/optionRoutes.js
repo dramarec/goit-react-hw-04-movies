@@ -2,7 +2,7 @@ import { lazy } from 'react';
 
 export const optionRoutes = [
     {
-        path: '/movies/:movieId/cast',
+        path: '/cast',
         url: '/cast',
         name: 'Cast',
         exact: true,
@@ -13,7 +13,7 @@ export const optionRoutes = [
         ),
     },
     {
-        path: '/movies/:movieId/reviews',
+        path: '/reviews',
         url: '/reviews',
         name: 'Reviews',
         exact: true,

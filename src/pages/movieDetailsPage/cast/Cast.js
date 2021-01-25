@@ -1,42 +1,56 @@
 import { actorsInfo } from '../../../api/data';
 import React, { Component } from 'react';
+import styled from 'styled-components';
 
+const Div = styled.div`
+    h2 {
+        margin: 15px 0 0 25px;
+    }
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    li {
+        width: 160px;
+    }
+`;
 export default class Cast extends Component {
     state = {
         casts: [],
-        error: null,
-        isLoding: false,
     };
     componentDidMount() {
         this.setState({ isLoading: true });
-        actorsInfo(this.props.match.params.movieId)
+        actorsInfo(this.props.location.state.id)
             .then(response => response.data.cast)
-            .then(casts => this.setState({ casts }))
-            .catch(error => this.setState({ error: error }))
-            .finally(() => this.setState({ isLoading: false }));
+            .then(casts => this.setState({ casts }));
     }
     render() {
         // console.log('casts >', this.state.casts);
 
         return (
-            <div>
+            <Div>
                 <h2>Cast</h2>
-                {/* <h2>{this.props.match.params.movieId}</h2> */}
                 <ul>
                     {this.state.casts.map(cast => (
                         <li key={cast.id}>
                             <h3>{cast.original_name}</h3>
 
-                            {/* {this.state.casts.profile_path !== null ? ( */}
                             <img
-                                src={`https://image.tmdb.org/t/p/w300${cast.profile_path}`}
+                                src={
+                                    cast.profile_path
+                                        ? `https://image.tmdb.org/t/p/w300${cast.profile_path}`
+                                        : `https://image.freepik.com/free-vector/glitch-error-404-page-background_23-2148086227.jpg`
+                                }
                                 alt={cast.original_name}
                             />
-                            {/* ) : null} */}
                         </li>
                     ))}
                 </ul>
-            </div>
+            </Div>
         );
     }
 }
+
+//  poster_path
+// ? `https://image.tmdb.org/t/p/w300${poster_path}`
+// : `https://image.freepik.com/free-vector/glitch-error-404-page-background_23-2148086227.jpg`
